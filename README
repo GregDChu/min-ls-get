@@ -1,0 +1,73 @@
+-----------
+OVERVIEW
+-----------
+The two programs included in this source material are minls and minget. Their purpose is to list (minls) and copy (minget) the contents of a Minix filesystem image. Minix is a toy operating system used in many academic settings for teaching purposes. This implementation is written in C.
+
+---------------
+GETTING STARTED
+---------------
+If the minls and minget executables are not present in the source material or should you desire to recompile them, please run the Makefile by typing and entering 'make'. The default make should automatically remove any object files. If it does not, you can manually remove them up by typing and entering 'make clean'.
+
+-----------
+MINLS
+-----------
+The usage of minls follows:
+    minls [ -v ] [ -p partition [ -s subpartition] ] imagefile [imagepath]
+
+Argument descriptions:
+    imagefile - The image file from which the program will read.
+    imagepath - An optional argument that asserts the path within the Minix image
+                from which the program should list the contents. It is set to the
+                root path by default.
+    
+Option descriptions:
+    -v The verbose flag asserts that the user desires more information about
+       the image file. Information offered includes metadata about the respective superblock and inode of the file.
+    -p The partition flag asserts the specific partition in which the desired file
+       resides. It is set to 0 by default.
+    -s The subpartition flag asserts the specific subpartition in which the desired
+       file resides. It is not used by default.
+
+Output:
+    First, minls prints out the current directory from which it is reading. Then, it lists each file contained in that directory starting with the directory status (d) followed by three owner permissions, three group permissions, and three other permissions (rwxrwxrwx). A dash '-' indicates a user of that status does not have permission to read (r), write (w), or execute (x) that file/directory. Next in a listing is the size of the file or directory contents in bytes. Last in a listing is the name of the file/directory.
+    
+    Example:
+    drw-r----x        283 foo
+    The above listing describes a directory (d) with read and write permissions for the owner (rw-), read permissions for users in the same group as the owner (r--), and executable permissions for other users outside of the group (--x). The director contents amount to 283 bytes, and the directory is named 'foo'.
+    
+-----------
+MINGET
+-----------
+The usage of minget follows:
+    minget [ -v ] [ -p partition [ -s subpartition] ] imagefile srcpath [destpath]
+
+Argument descriptions:
+    imagefile - The image file from which the program will read.
+    srcpath   - The location of the file from which the program will read.
+    destpath  - The location of the file into which the program will copy.
+                It is set to standard output by default.
+
+Option descriptions:
+    -v The verbose flag asserts that the user desires more information about
+       the image file. Information offered includes metadata about the respective
+       superblock and inode of the file.
+    -p The partition flag asserts the specific partition in which the desired file
+       resides. It is not used by default.
+    -s The subpartition flag asserts the specific subpartition in which the desired
+       file resides. It is not used by default.
+
+---------------
+INCLUDED IMAGES
+---------------
+The images included in the source material are located in the 'imgs' directory. Below are the partition details for each image:
+
+               | Partitions | Subpartitions |
+BigDirectories |    None    |      None     |
+BigIndirectDirs|    None    |      None     |
+BigZones-16k   |    None    |      None     |
+HardDisk       |     0      |      0, 2     |
+Partitioned    |    0-3     |      None     |
+TestImage      |    None    |      None     |
+
+Created by Gregory Chu June, 2020
+OS images gathered from Cal Poly CSC 453 course materials.
