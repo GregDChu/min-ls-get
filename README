@@ -6,7 +6,7 @@ The two programs included in this source material are minls and minget. Their pu
 ---------------
 GETTING STARTED
 ---------------
-If the minls and minget executables are not present in the source material or should you desire to recompile them, please run the Makefile by typing and entering 'make'. The default make should automatically remove any object files. If it does not, you can manually remove them up by typing and entering 'make clean'.
+If the minls and minget executables are not present in the source material or should you desire to recompile them, please run the Makefile by typing and entering 'make'. The default make should automatically remove any object files. If it does not, you can manually remove them by typing and entering 'make clean'.
 
 -----------
 MINLS
@@ -33,7 +33,7 @@ Output:
     
     Example:
     drw-r----x        283 foo
-    The above listing describes a directory (d) with read and write permissions for the owner (rw-), read permissions for users in the same group as the owner (r--), and executable permissions for other users outside of the group (--x). The director contents amount to 283 bytes, and the directory is named 'foo'.
+    The above listing describes a directory (d) with read and write permissions for the owner (rw-), read permissions for users in the same group as the owner (r--), and executable permissions for other users outside of the group (--x). The directory contents amount to 283 bytes, and the directory is named 'foo'.
     
 -----------
 MINGET
